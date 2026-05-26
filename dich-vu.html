@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dịch Vụ - Thế Giới Nhà</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .image-zoom {
+            transition: transform 0.5s ease-out;
+        }
+        
+        .image-zoom:hover {
+            transform: scale(1.05);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1e40af;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .accent-blue {
+            color: #1e40af;
+        }
+        
+        .accent-red {
+            color: #dc2626;
+        }
+        
+        .bg-accent-blue {
+            background: #1e40af;
+        }
+        
+        .bg-accent-red {
+            background: #dc2626;
+        }
+        
+        .border-accent-blue {
+            border-color: #1e40af;
+        }
+        
+        .gradient-border {
+            position: relative;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, #1e40af, #dc2626);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        
+        .timeline-dot {
+            position: relative;
+        }
+        
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #1e40af;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #1e40af;
+        }
+        
+        .heroSwiper {
+            --swiper-theme-color: #ffffff;
+            --swiper-pagination-color: #ffffff;
+            --swiper-pagination-bullet-width: 12px;
+            --swiper-pagination-bullet-height: 12px;
+            --swiper-pagination-bullet-inactive-color: rgba(255,255,255,0.5);
+        }
+        
+        .hero-prev, .hero-next {
+            color: white;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-prev:hover, .hero-next:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+        
+        .hero-prev::after, .hero-next::after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="logo-sua-nha-uytin-removebg-preview.png" alt="" class="h-[50px]">
+                </a>
+
+                <!-- Navigation (Desktop) -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="gioi-thieu.html" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Giới Thiệu</a>
+                    <a href="dich-vu.html" class="px-5 py-3 text-blue-900 font-medium text-sm bg-blue-50 rounded-full">Dịch Vụ</a>
+                    <a href="du-an.html" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Dự Án</a>
+                    <a href="index.html#process" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Quy Trình</a>
+                    <a href="video.html" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Video</a>
+                    <a href="tin-tuc.html" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Tin Tức</a>
+                </nav>
+
+                <!-- Contact Section -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <div class="text-right">
+                        <div class="text-xs text-gray-500 font-medium">Gọi miễn phí</div>
+                        <div class="text-lg font-bold text-blue-900">0901.234.567</div>
+                    </div>
+                    <a href="index.html#contact" class="group bg-gradient-to-r from-blue-900 to-red-600 text-white px-8 py-3 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-blue-900/20 transition-all flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        Liên hệ ngay
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-3 rounded-2xl bg-gray-100 hover:bg-gray-200 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl">
+            <div class="px-6 py-8 space-y-6">
+                <nav class="space-y-3">
+                    <a href="gioi-thieu.html" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Giới Thiệu</a>
+                    <a href="dich-vu.html" class="block px-5 py-4 text-blue-900 font-medium bg-blue-50 rounded-2xl">Dịch Vụ</a>
+                    <a href="du-an.html" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Dự Án</a>
+                    <a href="index.html#process" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Quy Trình</a>
+                    <a href="video.html" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Video</a>
+                    <a href="tin-tuc.html" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Tin Tức</a>
+                </nav>
+                <div class="pt-4 border-t border-gray-100">
+                    <div class="text-sm text-gray-500 mb-2">Hotline</div>
+                    <div class="text-xl font-bold text-blue-900 mb-4">0901.234.567</div>
+                    <a href="index.html#contact" class="group w-full bg-gradient-to-r from-blue-900 to-red-600 text-white px-8 py-4 rounded-2xl text-sm font-medium text-center flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        Liên hệ ngay
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center fade-in">
+                <span class="inline-block px-4 py-2 bg-blue-100 text-blue-900 rounded-full text-sm font-medium mb-6">Dịch Vụ Của Chúng Tôi</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">Giải Pháp Toàn Diện<br><span class="bg-gradient-to-r from-blue-900 to-red-600 bg-clip-text text-transparent">Cho Không Gian Sống Của Bạn</span></h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Từ tư vấn thiết kế đến thi công hoàn chỉnh, Thế Giới Nhà mang đến giải pháp toàn diện cho mọi nhu cầu về nhà ở.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover fade-in">
+                    <div class="grid md:grid-cols-2">
+                        <div class="aspect-square overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4acec?w=800&q=80" alt="Thiết kế nội thất" class="w-full h-full object-cover image-zoom">
+                        </div>
+                        <div class="p-8 flex flex-col justify-center">
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-900 rounded-full text-xs font-medium mb-4 w-fit">Thiết kế</span>
+                            <h3 class="text-2xl font-bold mb-4">Thiết Kế Nội Thất</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Thiết kế nội thất hiện đại, sang trọng, tối ưu không gian và phản ánh phong cách cá nhân của bạn.</p>
+                            <a href="chi-tiet-dich-vu.html" class="inline-flex items-center font-medium accent-blue group">
+                                Tìm hiểu thêm
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 2 -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover fade-in">
+                    <div class="grid md:grid-cols-2">
+                        <div class="p-8 flex flex-col justify-center order-2 md:order-1">
+                            <span class="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium mb-4 w-fit">Cải tạo</span>
+                            <h3 class="text-2xl font-bold mb-4">Cải Tạo Nhà</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Biến đổi ngôi nhà cũ thành không gian hoàn toàn mới với thiết kế hiện đại và tiện nghi.</p>
+                            <a href="index.html#contact" class="inline-flex items-center font-medium accent-red group">
+                                Tìm hiểu thêm
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="aspect-square overflow-hidden order-1 md:order-2">
+                            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800&q=80" alt="Cải tạo nhà" class="w-full h-full object-cover image-zoom">
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 3 -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover fade-in">
+                    <div class="grid md:grid-cols-2">
+                        <div class="aspect-square overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Xây dựng nhà mới" class="w-full h-full object-cover image-zoom">
+                        </div>
+                        <div class="p-8 flex flex-col justify-center">
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-900 rounded-full text-xs font-medium mb-4 w-fit">Xây dựng</span>
+                            <h3 class="text-2xl font-bold mb-4">Xây Dựng Nhà Mới</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Xây dựng ngôi nhà mơ ước từ A đến Z với chất lượng cao và tiến độ đảm bảo.</p>
+                            <a href="chi-tiet-dich-vu.html" class="inline-flex items-center font-medium accent-blue group">
+                                Tìm hiểu thêm
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 4 -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover fade-in">
+                    <div class="grid md:grid-cols-2">
+                        <div class="p-8 flex flex-col justify-center order-2 md:order-1">
+                            <span class="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium mb-4 w-fit">Kiến trúc</span>
+                            <h3 class="text-2xl font-bold mb-4">Thiết Kế Kiến Trúc</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Thiết kế kiến trúc độc đáo, kết hợp thẩm mỹ và công năng, phù hợp với môi trường và nhu cầu sử dụng.</p>
+                            <a href="index.html#contact" class="inline-flex items-center font-medium accent-red group">
+                                Tìm hiểu thêm
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="aspect-square overflow-hidden order-1 md:order-2">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Thiết kế kiến trúc" class="w-full h-full object-cover image-zoom">
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 5 -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover fade-in">
+                    <div class="grid md:grid-cols-2">
+                        <div class="aspect-square overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Giám sát chất lượng" class="w-full h-full object-cover image-zoom">
+                        </div>
+                        <div class="p-8 flex flex-col justify-center">
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-900 rounded-full text-xs font-medium mb-4 w-fit">Giám sát</span>
+                            <h3 class="text-2xl font-bold mb-4">Giám Sát Chất Lượng</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Giám sát toàn bộ quy trình thi công, đảm bảo chất lượng và tiến độ đúng theo hợp đồng.</p>
+                            <a href="chi-tiet-dich-vu.html" class="inline-flex items-center font-medium accent-blue group">
+                                Tìm hiểu thêm
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 6 -->
+                <article class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover fade-in">
+                    <div class="grid md:grid-cols-2">
+                        <div class="p-8 flex flex-col justify-center order-2 md:order-1">
+                            <span class="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium mb-4 w-fit">Tư vấn</span>
+                            <h3 class="text-2xl font-bold mb-4">Tư Vấn Chuyên Nghiệp</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Tư vấn miễn phí về thiết kế, vật liệu, ngân sách và quy trình thực hiện dự án của bạn.</p>
+                            <a href="index.html#contact" class="inline-flex items-center font-medium accent-red group">
+                                Tìm hiểu thêm
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="aspect-square overflow-hidden order-1 md:order-2">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" alt="Tư vấn chuyên nghiệp" class="w-full h-full object-cover image-zoom">
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-sm font-semibold uppercase tracking-wider accent-blue">Tại Sao Chọn Chúng Tôi</span>
+                <h2 class="text-4xl font-bold mt-4">Lý Do Nên Chọn Thế Giới Nhà</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 fade-in">
+                    <div class="w-20 h-20 bg-white rounded-3xl shadow-sm flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Chuyên Nghiệp</h3>
+                    <p class="text-gray-500">Đội ngũ kỹ sư, kiến trúc sư có hơn 15 năm kinh nghiệm</p>
+                </div>
+                <div class="text-center p-6 fade-in">
+                    <div class="w-20 h-20 bg-white rounded-3xl shadow-sm flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 accent-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Giá Tốt</h3>
+                    <p class="text-gray-500">Báo giá minh bạch, cạnh tranh, không phát sinh chi phí</p>
+                </div>
+                <div class="text-center p-6 fade-in">
+                    <div class="w-20 h-20 bg-white rounded-3xl shadow-sm flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Đảm Bảo</h3>
+                    <p class="text-gray-500">Cam kết chất lượng, bảo hành dài hạn cho mọi công trình</p>
+                </div>
+                <div class="text-center p-6 fade-in">
+                    <div class="w-20 h-20 bg-white rounded-3xl shadow-sm flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 accent-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10V8a2 2 0 012-2h2a2 2 0 012 2v2M9 10v4m0-4v4m-4 0h8"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Tiến Độ</h3>
+                    <p class="text-gray-500">Thực hiện đúng tiến độ, bàn giao công trình kịp thời</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 bg-gradient-to-br from-blue-900 to-red-700 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10 fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Sẵn sàng bắt đầu dự án của bạn?</h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Liên hệ ngay để được tư vấn miễn phí và nhận báo giá chi tiết!</p>
+            <a href="index.html#contact" class="group inline-flex items-center bg-white text-blue-900 px-10 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition-all">
+                Liên hệ ngay hôm nay
+                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-100 pt-20 pb-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-900 to-red-600 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 001 1v4a1 1 0 001 1m-6 0h6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold text-gray-900">THẾ GIỚI NHÀ</div>
+                            <div class="text-xs text-gray-500 font-medium">Xây Dựng & Cải Tạo</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 mb-6">Tạo nên những không gian sống tuyệt vời với chất lượng và thẩm mỹ hàng đầu.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center border border-gray-200 hover:border-gray-900 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center border border-gray-200 hover:border-gray-900 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.28-.073-1.644-.073-4.849 0-3.259.014-3.668.072-4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center border border-gray-200 hover:border-gray-900 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path><path d="M7.271 20.451V9.322H3.517v11.129h3.754zm-1.876-12.676c1.307 0 2.117-.868 2.117-1.949-.015-1.097-.805-1.946-2.094-1.946S3.3 4.733 3.3 5.827c0 1.081.809 1.948 2.077 1.948h.018zm13.084 12.676V9.322h-3.689v1.877h-.055c-.535-1.086-1.949-1.949-3.812-1.949-3.926 0-4.939 2.515-4.939 4.91v2.611h3.754v2.03c0 1.595.34 2.347 1.949 2.347 1.054 0 1.671-.311 2.037-.759v-.004h.047v-.005c.353.453.968.764 2.02.764 1.598 0 1.948-.755 1.948-2.347v-2.03h3.687l.006-.001z" fill="currentColor"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-6">Dịch vụ</h4>
+                    <ul class="space-y-4">
+                        <li><a href="dich-vu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Thiết kế nội thất</a></li>
+                        <li><a href="dich-vu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Cải tạo nhà</a></li>
+                        <li><a href="dich-vu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Xây dựng nhà mới</a></li>
+                        <li><a href="dich-vu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Thiết kế kiến trúc</a></li>
+                        <li><a href="dich-vu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Giám sát chất lượng</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-6">Về chúng tôi</h4>
+                    <ul class="space-y-4">
+                        <li><a href="gioi-thieu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Giới thiệu</a></li>
+                        <li><a href="du-an.html" class="text-gray-500 hover:text-gray-900 transition-colors">Dự án</a></li>
+                        <li><a href="tin-tuc.html" class="text-gray-500 hover:text-gray-900 transition-colors">Tin tức</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Đội ngũ</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-6">Liên hệ</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="text-gray-500">123 Đường ABC, Quận 1, TP.HCM</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span class="text-gray-500">0901.234.567</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="text-gray-500">info@thegioinh.vn</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">© 2026 Thế Giới Nhà. All rights reserved.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Chính sách bảo mật</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Điều khoản sử dụng</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white/95', 'backdrop-blur-xl', 'shadow-lg', 'shadow-gray-200/50');
+            } else {
+                header.classList.remove('bg-white/95', 'backdrop-blur-xl', 'shadow-lg', 'shadow-gray-200/50');
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        // Scroll reveal animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

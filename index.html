@@ -10,160 +10,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .image-zoom {
-            transition: transform 0.5s ease-out;
-        }
-        
-        .image-zoom:hover {
-            transform: scale(1.05);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease-out;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #1e40af;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .accent-blue {
-            color: #1e40af;
-        }
-        
-        .accent-red {
-            color: #dc2626;
-        }
-        
-        .bg-accent-blue {
-            background: #1e40af;
-        }
-        
-        .bg-accent-red {
-            background: #dc2626;
-        }
-        
-        .border-accent-blue {
-            border-color: #1e40af;
-        }
-        
-        .gradient-border {
-            position: relative;
-        }
-        
-        .gradient-border::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            padding: 1px;
-            background: linear-gradient(135deg, #1e40af, #dc2626);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-        }
-        
-        .timeline-dot {
-            position: relative;
-        }
-        
-        .timeline-dot::before {
-            content: '';
-            position: absolute;
-            left: -28px;
-            top: 8px;
-            width: 12px;
-            height: 12px;
-            background: #1e40af;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #1e40af;
-        }
-        
-        .heroSwiper {
-            --swiper-theme-color: #ffffff;
-            --swiper-pagination-color: #ffffff;
-            --swiper-pagination-bullet-width: 12px;
-            --swiper-pagination-bullet-height: 12px;
-            --swiper-pagination-bullet-inactive-color: rgba(255,255,255,0.5);
-        }
-        
-        .hero-prev, .hero-next {
-            color: white;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        .hero-prev:hover, .hero-next:hover {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.1);
-        }
-        
-        .hero-prev::after, .hero-next::after {
-            font-size: 20px;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-white text-gray-900 antialiased">
-    <!-- Header -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white backdrop-blur-md">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-24">
                 <!-- Logo -->
-                <a href="#" class="flex items-center space-x-3">
-                    <img src="logo-sua-nha-uytin-removebg-preview.png" alt="" class="h-[60px]">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="logo-sua-nha-uytin-removebg-preview.png" alt="" class="h-[50px]">
                 </a>
 
                 <!-- Navigation (Desktop) -->
                 <nav class="hidden lg:flex items-center space-x-1">
-                    <a href="#services" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Dịch Vụ</a>
-                    <a href="#projects" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Dự Án</a>
-                    <a href="#process" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Quy Trình</a>
-                    <a href="#testimonials" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Đánh Giá</a>
+                    <a href="gioi-thieu.html" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Giới Thiệu</a>
+                    <a href="dich-vu.html" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Dịch Vụ</a>
+                    <a href="du-an.html" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Dự Án</a>
+                    <a href="index.html#process" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Quy Trình</a>
+                    <a href="video.html" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Video</a>
+                    <a href="tin-tuc.html" class="px-5 py-3 text-gray-700 hover:text-blue-900 font-medium text-sm transition-all hover:bg-blue-50 rounded-full">Tin Tức</a>
                 </nav>
 
                 <!-- Contact Section -->
@@ -172,7 +37,7 @@
                         <div class="text-xs text-gray-500 font-medium">Gọi miễn phí</div>
                         <div class="text-lg font-bold text-blue-900">0901.234.567</div>
                     </div>
-                    <a href="#contact" class="group bg-gradient-to-r from-blue-900 to-red-600 text-white px-8 py-3 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-blue-900/20 transition-all flex items-center gap-2">
+                    <a href="index.html#contact" class="group bg-gradient-to-r from-blue-900 to-red-600 text-white px-8 py-3 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-blue-900/20 transition-all flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                         </svg>
@@ -193,15 +58,17 @@
         <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-xl">
             <div class="px-6 py-8 space-y-6">
                 <nav class="space-y-3">
-                    <a href="#services" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Dịch Vụ</a>
-                    <a href="#projects" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Dự Án</a>
-                    <a href="#process" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Quy Trình</a>
-                    <a href="#testimonials" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Đánh Giá</a>
+                    <a href="gioi-thieu.html" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Giới Thiệu</a>
+                    <a href="dich-vu.html" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Dịch Vụ</a>
+                    <a href="du-an.html" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Dự Án</a>
+                    <a href="index.html#process" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Quy Trình</a>
+                    <a href="video.html" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Video</a>
+                    <a href="tin-tuc.html" class="block px-5 py-4 text-gray-700 hover:text-blue-900 font-medium bg-gray-50 rounded-2xl">Tin Tức</a>
                 </nav>
                 <div class="pt-4 border-t border-gray-100">
                     <div class="text-sm text-gray-500 mb-2">Hotline</div>
                     <div class="text-xl font-bold text-blue-900 mb-4">0901.234.567</div>
-                    <a href="#contact" class="group w-full bg-gradient-to-r from-blue-900 to-red-600 text-white px-8 py-4 rounded-2xl text-sm font-medium text-center flex items-center justify-center gap-2">
+                    <a href="index.html#contact" class="group w-full bg-gradient-to-r from-blue-900 to-red-600 text-white px-8 py-4 rounded-2xl text-sm font-medium text-center flex items-center justify-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                         </svg>
@@ -289,6 +156,37 @@
         </div>
     </section>
 
+    <!-- About Us Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <span class="text-sm font-semibold uppercase tracking-wider accent-blue">Về Chúng Tôi</span>
+                    <h2 class="text-4xl font-bold mt-4 mb-8">Thế Giới Nhà - Nơi Tạo Ra<br>Không Gian Sống Hoàn Hảo</h2>
+                    <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
+                        <p>Với hơn 15 năm kinh nghiệm, chúng tôi tự hào là đơn vị hàng đầu trong ngành xây dựng và cải tạo nhà tại TP.HCM.</p>
+                        <p>Chúng tôi luôn đặt chất lượng và sự hài lòng của khách hàng lên hàng đầu. Mỗi công trình đều được thực hiện với sự tâm huyết và chuyên môn cao.</p>
+                    </div>
+                    <a href="gioi-thieu.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-900 to-red-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-blue-900/20 transition-all mt-8">
+                        Tìm hiểu thêm
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="relative fade-in">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Văn phòng Thế Giới Nhà" class="w-full rounded-3xl shadow-2xl image-zoom">
+                    <div class="absolute -bottom-8 -left-8 w-48 h-48 bg-gradient-to-br from-blue-900 to-red-600 rounded-3xl flex items-center justify-center shadow-xl">
+                        <div class="text-center text-white">
+                            <div class="text-4xl font-bold">15+</div>
+                            <div class="text-sm">Năm kinh nghiệm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services" class="py-32 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -306,6 +204,12 @@
                     <div class="p-8">
                         <h3 class="text-xl font-bold mb-4">Thiết kế nội thất</h3>
                         <p class="text-gray-500 leading-relaxed">Tư vấn và thiết kế không gian sống theo phong cách hiện đại, tối ưu diện tích.</p>
+                        <a href="chi-tiet-dich-vu.html" class="inline-flex items-center font-medium accent-blue group mt-6">
+                            Tìm hiểu thêm
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 
@@ -316,6 +220,12 @@
                     <div class="p-8">
                         <h3 class="text-xl font-bold mb-4">Cải tạo nhà</h3>
                         <p class="text-gray-500 leading-relaxed">Đổi mới không gian cũ thành hiện đại, tiết kiệm chi phí so với xây mới.</p>
+                        <a href="chi-tiet-dich-vu.html" class="inline-flex items-center font-medium accent-blue group mt-6">
+                            Tìm hiểu thêm
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 
@@ -326,6 +236,12 @@
                     <div class="p-8">
                         <h3 class="text-xl font-bold mb-4">Xây dựng nhà mới</h3>
                         <p class="text-gray-500 leading-relaxed">Xây dựng trọn gói từ nền móng đến hoàn thiện, đảm bảo tiến độ và chất lượng.</p>
+                        <a href="chi-tiet-dich-vu.html" class="inline-flex items-center font-medium accent-blue group mt-6">
+                            Tìm hiểu thêm
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 
@@ -336,6 +252,12 @@
                     <div class="p-8">
                         <h3 class="text-xl font-bold mb-4">Giám sát chất lượng</h3>
                         <p class="text-gray-500 leading-relaxed">Đội ngũ kỹ sư giám sát 24/7, đảm bảo mọi công đoạn theo tiêu chuẩn.</p>
+                        <a href="chi-tiet-dich-vu.html" class="inline-flex items-center font-medium accent-blue group mt-6">
+                            Tìm hiểu thêm
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 
@@ -346,6 +268,12 @@
                     <div class="p-8">
                         <h3 class="text-xl font-bold mb-4">Thiết kế kiến trúc</h3>
                         <p class="text-gray-500 leading-relaxed">Thiết kế bản vẽ kiến trúc chuyên nghiệp, tối ưu công năng và thẩm mỹ.</p>
+                        <a href="chi-tiet-dich-vu.html" class="inline-flex items-center font-medium accent-blue group mt-6">
+                            Tìm hiểu thêm
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 
@@ -356,6 +284,12 @@
                     <div class="p-8">
                         <h3 class="text-xl font-bold mb-4">Tư vấn vật liệu</h3>
                         <p class="text-gray-500 leading-relaxed">Lựa chọn vật liệu chất lượng cao, bền bỉ và phù hợp với ngân sách.</p>
+                        <a href="chi-tiet-dich-vu.html" class="inline-flex items-center font-medium accent-blue group mt-6">
+                            Tìm hiểu thêm
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -585,11 +519,10 @@
                     <div class="swiper-slide">
                         <div class="bg-white p-10 rounded-3xl border border-gray-100 h-full">
                             <div class="flex items-center gap-1 mb-6">
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             </div>
                             <p class="text-lg text-gray-600 mb-8 leading-relaxed">"Thế Giới Nhà đã giúp tôi biến căn hộ cũ thành một không gian hiện đại và sang trọng. Đội ngũ rất chuyên nghiệp và nhiệt huyết."</p>
                             <div class="flex items-center gap-4">
@@ -606,20 +539,19 @@
                     <div class="swiper-slide">
                         <div class="bg-white p-10 rounded-3xl border border-gray-100 h-full">
                             <div class="flex items-center gap-1 mb-6">
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             </div>
-                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">"Rất hài lòng với chất lượng và dịch vụ của Thế Giới Nhà. Tiến độ đúng hẹn, giá cả hợp lý. Sẽ giới thiệu bạn bè!"</p>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">"Chúng tôi rất hài lòng với chất lượng công trình và dịch vụ của Thế Giới Nhà. Mọi thứ đều như mong đợi."</p>
                             <div class="flex items-center gap-4">
                                 <div class="w-14 h-14 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center">
-                                    <span class="text-xl font-bold accent-red">LH</span>
+                                    <span class="text-xl font-bold accent-red">LT</span>
                                 </div>
                                 <div>
-                                    <div class="font-bold">Lê Hùng</div>
-                                    <div class="text-sm text-gray-500">Chủ nhà, Q.7</div>
+                                    <div class="font-bold">Lê Tuấn</div>
+                                    <div class="text-sm text-gray-500">Chủ shophouse, Q.2</div>
                                 </div>
                             </div>
                         </div>
@@ -627,26 +559,172 @@
                     <div class="swiper-slide">
                         <div class="bg-white p-10 rounded-3xl border border-gray-100 h-full">
                             <div class="flex items-center gap-1 mb-6">
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364-1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8 2.034c-.784.57-1.838-.197 1.539-1.118l1.07-3.292a1 1 0 00-.364 1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                             </div>
-                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">"Đội ngũ thiết kế rất sáng tạo, hiểu đúng tâm lý khách hàng. Căn hộ của tôi đẹp beyond expectation!"</p>
+                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">"Giá cả hợp lý, tiến độ nhanh chóng, chất lượng tuyệt vời. Rất recommend Thế Giới Nhà!"</p>
                             <div class="flex items-center gap-4">
                                 <div class="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center">
-                                    <span class="text-xl font-bold accent-blue">TP</span>
+                                    <span class="text-xl font-bold accent-blue">PH</span>
                                 </div>
                                 <div>
-                                    <div class="font-bold">Trang Phương</div>
-                                    <div class="text-sm text-gray-500">Chủ nhà, Bình Thạnh</div>
+                                    <div class="font-bold">Phạm Hùng</div>
+                                    <div class="text-sm text-gray-500">Chủ biệt thự, Q.7</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination mt-8"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20">
+                <div class="fade-in">
+                    <span class="text-sm font-semibold uppercase tracking-wider accent-blue">Video Giới Thiệu</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Quy trình & dự án thực tế</h2>
+                    <p class="text-xl text-gray-500 max-w-2xl">Xem những video giới thiệu về quy trình làm việc và các dự án đã hoàn thành của chúng tôi.</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-3xl overflow-hidden fade-in">
+                    <div class="relative aspect-video bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Video quy trình" class="w-full h-full object-cover image-zoom">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group">
+                                <svg class="w-8 h-8 text-blue-900 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Quy trình làm việc hoàn chỉnh</h3>
+                        <p class="text-gray-500 text-sm mb-3">Từ khảo sát đến bàn giao, 5 bước đơn giản</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <span>8 phút</span>
+                            <span>•</span>
+                            <span>2.5K lượt xem</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-3xl overflow-hidden fade-in">
+                    <div class="relative aspect-video bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Video dự án" class="w-full h-full object-cover image-zoom">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group">
+                                <svg class="w-8 h-8 text-blue-900 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Biệt thự hiện đại Q.7</h3>
+                        <p class="text-gray-500 text-sm mb-3">Dự án hoàn thành trong 6 tháng</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <span>12 phút</span>
+                            <span>•</span>
+                            <span>4.2K lượt xem</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-3xl overflow-hidden fade-in">
+                    <div class="relative aspect-video bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800&q=80" alt="Video cải tạo" class="w-full h-full object-cover image-zoom">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group">
+                                <svg class="w-8 h-8 text-blue-900 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cải tạo nhà cũ Q.1</h3>
+                        <p class="text-gray-500 text-sm mb-3">Biến đổi hoàn hảo trong 3 tháng</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <span>10 phút</span>
+                            <span>•</span>
+                            <span>3.8K lượt xem</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-3xl overflow-hidden fade-in">
+                    <div class="relative aspect-video bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Video nội thất" class="w-full h-full object-cover image-zoom">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group">
+                                <svg class="w-8 h-8 text-blue-900 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Thiết kế nội thất minimal</h3>
+                        <p class="text-gray-500 text-sm mb-3">Tối giản nhưng sang trọng</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <span>6 phút</span>
+                            <span>•</span>
+                            <span>5.1K lượt xem</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-3xl overflow-hidden fade-in">
+                    <div class="relative aspect-video bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Video xây dựng" class="w-full h-full object-cover image-zoom">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group">
+                                <svg class="w-8 h-8 text-blue-900 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Xây dựng nhà mới trọn gói</h3>
+                        <p class="text-gray-500 text-sm mb-3">Từ nền móng đến hoàn thiện</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <span>15 phút</span>
+                            <span>•</span>
+                            <span>2.9K lượt xem</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-3xl overflow-hidden fade-in">
+                    <div class="relative aspect-video bg-gray-900">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80" alt="Video shophouse" class="w-full h-full object-cover image-zoom">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform group">
+                                <svg class="w-8 h-8 text-blue-900 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Shophouse sang trọng Q.2</h3>
+                        <p class="text-gray-500 text-sm mb-3">Kết hợp kinh doanh và sinh sống</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <span>9 phút</span>
+                            <span>•</span>
+                            <span>3.3K lượt xem</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -654,57 +732,82 @@
     <!-- News Section -->
     <section class="py-32 bg-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 fade-in">
-                <div>
-                    <span class="text-sm font-semibold uppercase tracking-wider accent-red">Bài Viết Mới</span>
-                    <h2 class="text-4xl md:text-5xl font-bold mt-4">Kiến thức & Xu hướng</h2>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20">
+                <div class="fade-in">
+                    <span class="text-sm font-semibold uppercase tracking-wider accent-blue">Tin Tức & Kiến Thức</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Bài viết mới nhất</h2>
+                    <p class="text-xl text-gray-500 max-w-2xl">Cập nhật xu hướng thiết kế, kiến thức xây dựng và mẹo làm đẹp nhà.</p>
                 </div>
-                <a href="#" class="mt-6 md:mt-0 inline-flex items-center text-gray-900 font-medium hover:accent-blue transition-colors">
+                <a href="tin-tuc.html" class="inline-flex items-center font-medium accent-blue group mt-8 md:mt-0 fade-in">
                     Xem tất cả
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </a>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="card-hover group fade-in">
+                <article class="card-hover bg-white rounded-3xl border border-gray-100 overflow-hidden fade-in">
                     <div class="aspect-[4/3] bg-gray-100 rounded-3xl mb-6 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80" alt="Top 10 xu hướng nội thất 2026" class="w-full h-full object-cover image-zoom">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4acec?w=800&q=80" alt="Xu hướng nội thất 2026" class="w-full h-full object-cover image-zoom">
                     </div>
-                    <div class="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                        <span>26 Tháng 5, 2026</span>
-                        <span>•</span>
-                        <span>Thiết kế</span>
+                    <div class="px-6 pb-6">
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                            <span>26 Tháng 5, 2026</span>
+                            <span>•</span>
+                            <span>Xu hướng</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 group-hover:accent-blue transition-colors">Top 10 xu hướng thiết kế nội thất hot nhất năm 2026</h3>
+                        <p class="text-gray-500 mb-4">Khám phá những xu hướng thiết kế nội thất sẽ làm mưa làm gió trong năm 2026...</p>
+                        <a href="chi-tiet-tin-tuc.html" class="inline-flex items-center font-medium accent-blue group">
+                            Đọc thêm
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:accent-blue transition-colors">Top 10 xu hướng nội thất 2026</h3>
-                    <p class="text-gray-500">Khám phá những xu hướng thiết kế nội thất hot nhất năm nay...</p>
                 </article>
                 
-                <article class="card-hover group fade-in">
+                <article class="card-hover bg-white rounded-3xl border border-gray-100 overflow-hidden fade-in">
                     <div class="aspect-[4/3] bg-gray-100 rounded-3xl mb-6 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Cách chọn vật liệu bền bỉ" class="w-full h-full object-cover image-zoom">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80" alt="Xây dựng tiết kiệm" class="w-full h-full object-cover image-zoom">
                     </div>
-                    <div class="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                        <span>20 Tháng 5, 2026</span>
-                        <span>•</span>
-                        <span>Mẹo hay</span>
+                    <div class="px-6 pb-6">
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                            <span>20 Tháng 5, 2026</span>
+                            <span>•</span>
+                            <span>Xây dựng</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 group-hover:accent-blue transition-colors">Mẹo xây dựng nhà tiết kiệm nhưng vẫn đẹp</h3>
+                        <p class="text-gray-500 mb-4">Bí quyết xây dựng ngôi nhà đẹp mà không cần tốn quá nhiều chi phí...</p>
+                        <a href="chi-tiet-tin-tuc.html" class="inline-flex items-center font-medium accent-blue group">
+                            Đọc thêm
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:accent-blue transition-colors">Cách chọn vật liệu bền bỉ</h3>
-                    <p class="text-gray-500">Gợi ý chọn vật liệu xây dựng chất lượng, tiết kiệm chi phí...</p>
                 </article>
                 
-                <article class="card-hover group fade-in">
+                <article class="card-hover bg-white rounded-3xl border border-gray-100 overflow-hidden fade-in">
                     <div class="aspect-[4/3] bg-gray-100 rounded-3xl mb-6 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1581858619704-7b95b6be8eb5?w=800&q=80" alt="Cải tạo nhà cũ hiệu quả" class="w-full h-full object-cover image-zoom">
                     </div>
-                    <div class="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                        <span>15 Tháng 5, 2026</span>
-                        <span>•</span>
-                        <span>Cải tạo</span>
+                    <div class="px-6 pb-6">
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                            <span>15 Tháng 5, 2026</span>
+                            <span>•</span>
+                            <span>Cải tạo</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 group-hover:accent-blue transition-colors">Cải tạo nhà cũ hiệu quả</h3>
+                        <p class="text-gray-500 mb-4">Bí quyết cải tạo nhà cũ trở nên hiện đại mà không tốn kém...</p>
+                        <a href="chi-tiet-tin-tuc.html" class="inline-flex items-center font-medium accent-blue group">
+                            Đọc thêm
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:accent-blue transition-colors">Cải tạo nhà cũ hiệu quả</h3>
-                    <p class="text-gray-500">Bí quyết cải tạo nhà cũ trở nên hiện đại mà không tốn kém...</p>
                 </article>
             </div>
         </div>
@@ -717,7 +820,7 @@
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-red-500 rounded-full blur-3xl"></div>
         </div>
         
-        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10 fade-in">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10 fade-in">
             <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">Sẵn sàng bắt đầu?</h2>
             <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">Liên hệ ngay để nhận tư vấn miễn phí từ đội ngũ chuyên gia của chúng tôi.</p>
             
@@ -738,7 +841,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-50 border-t border-gray-100 pt-20 pb-8">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -771,21 +873,21 @@
                 <div>
                     <h4 class="font-bold text-gray-900 mb-6">Dịch vụ</h4>
                     <ul class="space-y-4">
-                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Thiết kế nội thất</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Cải tạo nhà</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Xây dựng nhà mới</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Thiết kế kiến trúc</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Giám sát chất lượng</a></li>
+                        <li><a href="dich-vu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Thiết kế nội thất</a></li>
+                        <li><a href="dich-vu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Cải tạo nhà</a></li>
+                        <li><a href="dich-vu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Xây dựng nhà mới</a></li>
+                        <li><a href="dich-vu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Thiết kế kiến trúc</a></li>
+                        <li><a href="dich-vu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Giám sát chất lượng</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-bold text-gray-900 mb-6">Về chúng tôi</h4>
                     <ul class="space-y-4">
-                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Giới thiệu</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Dự án</a></li>
+                        <li><a href="gioi-thieu.html" class="text-gray-500 hover:text-gray-900 transition-colors">Giới thiệu</a></li>
+                        <li><a href="du-an.html" class="text-gray-500 hover:text-gray-900 transition-colors">Dự án</a></li>
+                        <li><a href="tin-tuc.html" class="text-gray-500 hover:text-gray-900 transition-colors">Tin tức</a></li>
                         <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Đội ngũ</a></li>
-                        <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Tin tức</a></li>
                         <li><a href="#" class="text-gray-500 hover:text-gray-900 transition-colors">Tuyển dụng</a></li>
                     </ul>
                 </div>
@@ -826,129 +928,12 @@
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Header scroll effect
-        const header = document.getElementById('header');
-        let lastScrollY = window.scrollY;
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('bg-white/95', 'backdrop-blur-xl', 'shadow-lg', 'shadow-gray-200/50');
-            } else {
-                header.classList.remove('bg-white/95', 'backdrop-blur-xl', 'shadow-lg', 'shadow-gray-200/50');
-            }
-            lastScrollY = window.scrollY;
-        });
-
-        // Scroll reveal animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        fadeElements.forEach(el => observer.observe(el));
-
-        // Project Swiper
-        const projectSwiper = new Swiper('.projectSwiper', {
-            slidesPerView: 1,
-            spaceBetween: 24,
-            loop: true,
-            pagination: {
-                el: '.projectSwiper .swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.project-next',
-                prevEl: '.project-prev',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-
-        // Testimonial Swiper
-        const testimonialSwiper = new Swiper('.testimonialSwiper', {
-            slidesPerView: 1,
-            spaceBetween: 24,
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.testimonialSwiper .swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-
-        // Hero Swiper
-        const heroSwiper = new Swiper('.heroSwiper', {
-            slidesPerView: 1,
-            spaceBetween: 0,
-            loop: true,
-            speed: 1000,
-            autoplay: {
-                delay: 6000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.hero-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.hero-next',
-                prevEl: '.hero-prev',
-            },
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true,
-            },
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    mobileMenu.classList.add('hidden');
-                }
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            initHeroSwiper();
+            initProjectSwiper();
+            initTestimonialSwiper();
         });
     </script>
 </body>

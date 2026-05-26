@@ -1,0 +1,230 @@
+* {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-zoom {
+    transition: transform 0.5s ease-out;
+}
+
+.image-zoom:hover {
+    transform: scale(1.05);
+}
+
+.card-hover {
+    transition: all 0.3s ease-out;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #1e40af;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.accent-blue {
+    color: #1e40af;
+}
+
+.accent-red {
+    color: #dc2626;
+}
+
+.bg-accent-blue {
+    background: #1e40af;
+}
+
+.bg-accent-red {
+    background: #dc2626;
+}
+
+.border-accent-blue {
+    border-color: #1e40af;
+}
+
+.gradient-border {
+    position: relative;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #1e40af, #dc2626);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.timeline-dot {
+    position: relative;
+}
+
+.timeline-dot::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    background: #1e40af;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #1e40af;
+}
+
+.heroSwiper {
+    --swiper-theme-color: #ffffff;
+    --swiper-pagination-color: #ffffff;
+    --swiper-pagination-bullet-width: 12px;
+    --swiper-pagination-bullet-height: 12px;
+    --swiper-pagination-bullet-inactive-color: rgba(255,255,255,0.5);
+}
+
+.hero-prev, .hero-next {
+    color: white;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.hero-prev:hover, .hero-next:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.1);
+}
+
+.hero-prev::after, .hero-next::after {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.testimonialSwiper {
+    --swiper-theme-color: #1e40af;
+    --swiper-pagination-color: #1e40af;
+    --swiper-pagination-bullet-width: 12px;
+    --swiper-pagination-bullet-height: 12px;
+    --swiper-pagination-bullet-inactive-color: #d1d5db;
+}
+
+.testimonial-prev, .testimonial-next {
+    color: #1e40af;
+    background: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.testimonial-prev:hover, .testimonial-next:hover {
+    background: #1e40af;
+    color: white;
+    transform: scale(1.1);
+}
+
+.testimonial-prev::after, .testimonial-next::after {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.projectSwiper {
+    --swiper-theme-color: #1e40af;
+    --swiper-pagination-color: #1e40af;
+    --swiper-pagination-bullet-width: 12px;
+    --swiper-pagination-bullet-height: 12px;
+    --swiper-pagination-bullet-inactive-color: #d1d5db;
+}
+
+.project-prev, .project-next {
+    color: #1e40af;
+    background: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.project-prev:hover, .project-next:hover {
+    background: #1e40af;
+    color: white;
+    transform: scale(1.1);
+}
+
+.project-prev::after, .project-next::after {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.filter-btn.active {
+    background: linear-gradient(to right, #1e40af, #dc2626);
+    color: white;
+}
+
+.prose h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.prose h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+}
+
+.prose p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: #4b5563;
+}
+
+.prose ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.prose ul li {
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+}
